@@ -20,3 +20,15 @@
             }
             passwordBox.value = password;
         }
+        function copyPassword() {
+            passwordBox.select();
+            navigator.clipboard.writeText(passwordBox.value)
+                .then(() => {
+                    console.log('Password copied to clipboard:', passwordBox.value);
+                    // Optionally, you can provide visual feedback or a success message here
+                })
+                .catch(err => {
+                    console.error('Failed to copy password:', err);
+                    // Handle any errors that may occur during the copying process
+                });
+        }
